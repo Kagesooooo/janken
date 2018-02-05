@@ -7,11 +7,11 @@ import java.util.Map;
 import java.util.Random;
 
 
-public class MainController implements ActionListener{
+public class unko_controller implements ActionListener{
 
-  private final String CODE_ROCK = "グー";
-  private final String CODE_SCISSORS = "チョキ";
-  private final String CODE_PAPER = "パー";
+  // private final String CODE_ROCK = "グー";
+  // private final String CODE_SCISSORS = "チョキ";
+  // private final String CODE_PAPER = "パー";
 
   private MainFrame mainFrame = new MainFrame();
 
@@ -23,23 +23,23 @@ public class MainController implements ActionListener{
   }
 
   //勝ちパターンを文字列化しておく 自分のじゃんけん + ":" + CPUのじゃんけん
-  private List<String> victoryList;
-  {
-    this.victoryList = new ArrayList<String>();
-    this.victoryList.add(this.CODE_ROCK + ":" + this.CODE_SCISSORS);
-    this.victoryList.add(this.CODE_SCISSORS + ":" + this.CODE_PAPER);
-    this.victoryList.add(this.CODE_PAPER + ":" + this.CODE_ROCK);
-  }
+  // private List<String> victoryList;
+  // {
+  //   this.victoryList = new ArrayList<String>();
+  //   this.victoryList.add(this.CODE_ROCK + ":" + this.CODE_SCISSORS);
+  //   this.victoryList.add(this.CODE_SCISSORS + ":" + this.CODE_PAPER);
+  //   this.victoryList.add(this.CODE_PAPER + ":" + this.CODE_ROCK);
+  // }
 
   //押されたボタンとじゃんけんコードのマッピング
-  private Map<Object, String> rpsMap;
-  {
-    //オブジェクトの等価で判断したいので、IdentityHashMapを使う。
-    this.rpsMap = new IdentityHashMap<Object, String>();
-    this.rpsMap.put(this.mainFrame.getButtonRock(),this.CODE_ROCK);
-    this.rpsMap.put(this.mainFrame.getButtonScissors(),this.CODE_SCISSORS);
-    this.rpsMap.put(this.mainFrame.getButtonPaper(),this.CODE_PAPER);
-  }
+  // private Map<Object, String> rpsMap;
+  // {
+  //   //オブジェクトの等価で判断したいので、IdentityHashMapを使う。
+  //   this.rpsMap = new IdentityHashMap<Object, String>();
+  //   this.rpsMap.put(this.mainFrame.getButtonRock(),this.CODE_ROCK);
+  //   this.rpsMap.put(this.mainFrame.getButtonScissors(),this.CODE_SCISSORS);
+  //   this.rpsMap.put(this.mainFrame.getButtonPaper(),this.CODE_PAPER);
+  // }
 
   /**
    * じゃんけんボタン押下時のアクションリスナー
@@ -48,8 +48,6 @@ public class MainController implements ActionListener{
   public void actionPerformed(ActionEvent e){
     //押したボタンからコード値を取得
     String result = this.rpsMap.get(e.getSource());
-    System.out.println(result);
-
 
     //コンピュータの選択をランダムに設定
     Random random = new Random();

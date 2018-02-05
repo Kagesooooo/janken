@@ -21,6 +21,7 @@ public class MainFrame extends JFrame{
 
   //サブタイトル
   private JLabel labelSubTitle = new JLabel("どれかボタンを押してね");
+  private JLabel pointLabel = new JLabel("ポイント！！！");
 
   public MainFrame(){
     super("じゃんけんゲーム");
@@ -35,16 +36,20 @@ public class MainFrame extends JFrame{
     ImageIcon imageRock = new ImageIcon("janken_gu.png");
     imageRock.setImage(imageRock.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
     this.buttonRock = new JButton(imageRock);
+    this.buttonRock.setBorderPainted(false);
 
     ImageIcon imageScissors = new ImageIcon("janken_choki.png");
     imageScissors.setImage(imageScissors.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
     this.buttonScissors = new JButton(imageScissors);
+    this.buttonScissors.setBorderPainted(false);
 
     ImageIcon imagePaper = new ImageIcon("janken_pa.png");
     imagePaper.setImage(imagePaper.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
     this.buttonPaper = new JButton(imagePaper);
+    this.buttonPaper.setBorderPainted(false);
 
     super.add("North",labelSubTitle);
+    super.add("South",pointLabel);
 
     panel.add(buttonRock);
     panel.add(buttonScissors);
@@ -61,6 +66,10 @@ public class MainFrame extends JFrame{
    */
   public void setSubTitle(String subTitle){
     labelSubTitle.setText(subTitle);
+  }
+
+  public void setPointLabel(int play1_p, int play2_p){
+    pointLabel.setText("play1:"+String.valueOf(play1_p)+"play2:"+String.valueOf(play2_p));
   }
 
   public JButton getButtonRock() {
